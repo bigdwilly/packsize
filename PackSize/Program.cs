@@ -54,6 +54,7 @@ namespace PackSize
                 errors.Add(exc.InnerException.ToString());
             }
 
+            result = String.Join(", ", courseList);
             if (errors.Count > 0)
             {
                 result = String.Concat(result, ". ERROR(s): ", String.Join(", ", errors));
