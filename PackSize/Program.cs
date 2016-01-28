@@ -33,6 +33,21 @@ namespace PackSize
                     string[] subArray = subList.FindAll(x => x.Trim() != String.Empty).ToArray();
                     prereqsArray[i] = subArray;
                 }
+
+                //loop through the courses
+                foreach (string[] course in prereqsArray)
+                {
+                    for (int i = course.Count() - 1; i >= 0; i--)
+                    {
+                        string thisCourse = course[i].Trim();
+
+                        //course isn't in the list yet, go ahead and add it
+                        if (!courseList.Contains(thisCourse))
+                        {
+                            courseList.Add(thisCourse);
+                        }
+                    }
+                }
             }
             catch (Exception exc)
             {
